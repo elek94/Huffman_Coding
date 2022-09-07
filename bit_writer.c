@@ -2,7 +2,7 @@
 #include "bit_writer.h"
 #include <stdbool.h>
 #include "clog.h"
-
+//..
 BitWriter open_bit_writer(const char* path) {
 	return (BitWriter) { .file = fopen(path, "w"), .current_byte = 0x00, .num_bits_left = 8 };
 }

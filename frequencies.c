@@ -5,7 +5,7 @@
 #include "frequencies.h"
 #include "miniunit.h"
 #include "clog.h"
-
+//..
 bool calc_frequencies(Frequencies freqs, const char* path, const char** a_error) {
 	const char* mode = "r";
 	FILE* file = fopen(path, mode);

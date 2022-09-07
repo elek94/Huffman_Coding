@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "clog.h"
-//...
+//.....
 #define mu_start()   				int __mu_line_number = 0
 #define mu_check(condition)			do { 																		\
 										if((__mu_line_number == 0) && (!(condition))) { 							\

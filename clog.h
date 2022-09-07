@@ -13,7 +13,7 @@
 #define ANSI_MAGENTA "\x1b[35m"
 #define ANSI_CYAN	 "\x1b[36m"
 #define ANSI_RESET	 "\x1b[0m"
-
+//...
 #define __mu_log_color(color, ...)			\
 do {								 		\
 	if(isatty(STDOUT_FILENO)) {				\
