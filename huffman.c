@@ -1,9 +1,6 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "huffman.h"
-//..
-//static int _cmp_fn(const void* arg_1, const void* arg_2);
-//static void _lookup(TreeNode* a_root, _BitCode* character_to_code);
 
 static int _cmp_fn(const void* arg_1, const void* arg_2) {
 	if(((TreeNode*)arg_1) -> frequency == ((TreeNode*)arg_2) -> frequency) {

@@ -88,12 +88,6 @@ static bool _check_file_contents(const char* path, size_t num_bytes, uint8_t con
 	return true;
 }
 
-/*
-static void _destroy_fn(void* a_value) {
-	free(a_value);
-}
-*/
-
 static int _test_empty() {
 	mu_start();
 
@@ -117,22 +111,6 @@ static int _test_empty() {
 
 static int _test_char() {
 	mu_start();
-/*
-	mu_check(root -> character == '\0');
-	mu_check(root -> frequency == 3);
-
-	mu_check(root -> right -> character == '\0');
-	mu_check(root -> right -> frequency == 2);
-
-	mu_check(root -> left -> character == 'c');            // INPUT TREE
-	mu_check(root -> left -> frequency == 1);
-	
-	mu_check(root -> right -> right -> character == 'b');
-	mu_check(root -> right -> right -> frequency == 1);
-	
-	mu_check(root -> right -> left -> character == 'a');
-	mu_check(root -> right -> left -> frequency == 1);
-*/
 
 	char const* content = "abc";
 	char const* path = "test1.txt";
@@ -167,24 +145,6 @@ static int _test_char() {
 
 static int _test_big_small_char() {
 	mu_start();
-/*
-	mu_check(root -> character == '\0');
-	mu_check(root -> frequency == 3);
-
-	mu_check(root -> left -> character == 'c');
-	mu_check(root -> left -> frequency == 1);
-
-	mu_check(root -> right -> character == '\0');               // INPUT TREE
-	mu_check(root -> right -> frequency == 2);
-	
-	mu_check(root -> right -> right -> character == 'a');
-	mu_check(root -> right -> right -> frequency == 1);
-
-	mu_check(root -> right -> left -> character == 'B');
-	mu_check(root -> right -> left -> frequency == 1);
-
-	destroy_huffman_tree(&root);
-*/
 
 	char const* content = "aBc";
 	char const* path = "test2.txt";
@@ -224,23 +184,6 @@ static int _test_big_small_char() {
 static int _test_stable() {
 	mu_start();
 
-/*
-	mu_check(root -> character == '\0');
-	mu_check(root -> frequency == 5);
-
-	mu_check(root -> right -> character == 'a');
-	mu_check(root -> right -> frequency == 3);
-
-	mu_check(root -> left -> character == '\0');          // INPUT TREE
-	mu_check(root -> left -> frequency == 2);
-	
-	mu_check(root -> left -> left -> character == 'b');
-	mu_check(root -> left -> left -> frequency == 1);
-	
-	mu_check(root -> left -> right -> character == 'c');
-	mu_check(root -> left -> right -> frequency == 1);
-*/
-
 	char const* content = "bcaaa";
 	char const* path = "test3.txt";
 	char const* file_name = _write_file(content, path);
@@ -279,29 +222,6 @@ static int _test_stable() {
 static int _test_frequency_char() {
 	mu_start();
 
-/*
-	mu_check(root -> character == '\0');
-	mu_check(root -> frequency == 10);
-
-	mu_check(root -> left -> character == 'd');
-	mu_check(root -> left -> frequency == 4);
-
-	mu_check(root -> right -> character == '\0');              // INPUT TREE
-	mu_check(root -> right -> frequency == 6);
-	
-	mu_check(root -> right -> right -> character == '\0');
-	mu_check(root -> right -> right -> frequency == 3);
-
-	mu_check(root -> right -> left -> character == 'c');
-	mu_check(root -> right -> left -> frequency == 3);
-	
-	mu_check(root -> right -> right -> right -> character == 'a');
-	mu_check(root -> right -> right -> right -> frequency == 2);
-	
-	mu_check(root -> right -> right -> left -> character == 'b');
-	mu_check(root -> right -> right -> left -> frequency == 1);
-*/
-
 	char const* content = "ddddaabccc";
 	char const* path = "test4.txt";
 	char const* file_name = _write_file(content, path);
@@ -339,40 +259,7 @@ static int _test_frequency_char() {
 
 static int _test_newline_space_char() {
 	mu_start();
-/*
-	mu_check(root -> character == '\0');
-	mu_check(root -> frequency == 7);
 
-	mu_check(root -> left -> character == '\0');
-	mu_check(root -> left -> frequency == 3);
-
-	mu_check(root -> right -> character == '\0');
-	mu_check(root -> right -> frequency == 4);
-	
-	mu_check(root -> left -> right -> character == 'k');
-	mu_check(root -> left -> right -> frequency == 2);
-
-	mu_check(root -> left -> left -> character == '3');
-	mu_check(root -> left -> left -> frequency == 1);
-	
-	mu_check(root -> right -> right -> left -> character == '\n');    // INPUT TREE
-	mu_check(root -> right -> right -> left -> frequency == 1);
-
-	mu_check(root -> right -> right -> right -> character == ' ');
-	mu_check(root -> right -> right -> right -> frequency == 1);
-
-	mu_check(root -> right -> right -> character == '\0');
-	mu_check(root -> right -> right -> frequency == 2);
-
-	mu_check(root -> right -> left -> character == '\0');
-	mu_check(root -> right -> left -> frequency == 2);
-	
-	mu_check(root -> right -> left -> right -> character == '2');
-	mu_check(root -> right -> left -> right -> frequency == 1);
-
-	mu_check(root -> right -> left -> left -> character == '$');
-	mu_check(root -> right -> left -> left -> frequency == 1);
-*/
 	char const* content = "$ \nkk32";
 	char const* path = "test5.txt";
 	char const* file_name = _write_file(content, path);
@@ -410,63 +297,7 @@ static int _test_newline_space_char() {
 
 static int _test_sentence() {
 	mu_start();
-/*
-	mu_check(root -> character == '\0');
-	mu_check(root -> frequency == 24);
 
-	mu_check(root -> right -> character == '\0');
-	mu_check(root -> right -> frequency == 14);
-
-	mu_check(root -> left -> character == '\0');
-	mu_check(root -> left -> frequency == 10);
-	
-	mu_check(root -> left -> left -> character == 'f');
-	mu_check(root -> left -> left -> frequency == 5);
-	
-	mu_check(root -> left -> right -> character == '\0');
-	mu_check(root -> left -> right -> frequency == 5);
-	
-	mu_check(root -> left -> right -> right -> character == ' ');
-	mu_check(root -> left -> right -> right -> frequency == 3);
-	
-	mu_check(root -> left -> right -> left -> character == '\0');
-	mu_check(root -> left -> right -> left -> frequency == 2);
-	
-	mu_check(root -> left -> right -> left -> right -> character == 'l');
-	mu_check(root -> left -> right -> left -> right -> frequency == 1);
-	
-	mu_check(root -> left -> right -> left -> left -> character == 'h');        // INPUT TREE
-	mu_check(root -> left -> right -> left -> left -> frequency == 1);
-
-	mu_check(root -> right -> right -> character == '\0');
-	mu_check(root -> right -> right -> frequency == 8);
-	
-	mu_check(root -> right -> left -> character == '\0');
-	mu_check(root -> right -> left -> frequency == 6);
-
-	mu_check(root -> right -> right -> right -> character == '\0');
-	mu_check(root -> right -> right -> right -> frequency == 4);
-	
-	mu_check(root -> right -> right -> right -> right -> character == 's');
-	mu_check(root -> right -> right -> right -> right -> frequency == 2);
-	
-	mu_check(root -> right -> right -> right -> left -> character == 'n');
-	mu_check(root -> right -> right -> right -> left -> frequency == 2);
-	
-	mu_check(root -> right -> left -> left -> character == 'u');
-	mu_check(root -> right -> left -> left -> frequency == 3);
-
-	mu_check(root -> right -> left -> right -> character == '\0');
-	mu_check(root -> right -> left -> right -> frequency == 3);
-
-	mu_check(root -> right -> left -> right -> left -> character == 'y');
-	mu_check(root -> right -> left -> right -> left -> frequency == 1);
-	
-	mu_check(root -> right -> left -> right -> right -> character == 'a');
-	mu_check(root -> right -> left -> right -> right -> frequency == 2);
-
-	destroy_huffman_tree(&root);
-*/	
 	char const* content = "huffman fluffs many mums";
 	char const* path = "test6.txt";
 	char const* file_name = _write_file(content, path);
