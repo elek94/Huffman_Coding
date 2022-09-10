@@ -51,7 +51,8 @@ static uint8_t* _read_file(char const* path) {
 	fp = fopen(path, "r");
 	uint8_t* string = malloc(num_bytes * sizeof(*string));
 	int idx = 0;
-	for(uint8_t ch = fgetc(fp); !feof(fp); ch = fgetc(fp)) {
+	uint8_t ch;
+	for(ch = fgetc(fp); !feof(fp); ch = fgetc(fp)) {
 		string[idx++] = ch;
 	}
 	string[idx] = '\0';
@@ -80,7 +81,8 @@ static bool _check_file_contents(const char* path, size_t num_bytes, uint8_t con
 	if(read_bytes != num_bytes) {
 		return false;
 	}
-	for(int bit_idx = 0; bit_idx < num_bytes; bit_idx++) {
+	int bit_idx;
+	for(bit_idx = 0; bit_idx < num_bytes; bit_idx++) {
 		if(result[bit_idx] != expected[bit_idx]) {
 			return false;
 		}
